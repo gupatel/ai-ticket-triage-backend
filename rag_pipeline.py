@@ -2,12 +2,12 @@ import os
 import json
 from dotenv import load_dotenv
 import chromadb
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 from groq import Groq
 
 load_dotenv()
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 client = chromadb.PersistentClient(path="./chroma_db")
 collection = client.get_or_create_collection(
     name="ticket_kb",
@@ -17,7 +17,7 @@ groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 
 def retrieve_similar_tickets(query: str, n_results: int = 3):
-    query_embedding = model.encode(query).tolist()
+    query_embedding = list(model.embed([query]))[0].tolist()
     results = collection.query(query_embeddings=[query_embedding], n_results=n_results)
 
     similar = []
@@ -31,7 +31,7 @@ def retrieve_similar_tickets(query: str, n_results: int = 3):
             "category": meta["category"],
             "priority": meta["priority"],
             "resolution": meta["resolution"],
-            "similarity_score": round(1 - dist, 3)
+            "similarity_score": round(max(0, 1 - dist), 3)
         })
     return similar
 

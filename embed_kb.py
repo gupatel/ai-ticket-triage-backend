@@ -1,9 +1,9 @@
 import json
 import chromadb
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
 # Load the embedding model (runs locally, free, no API key needed)
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 
 # Set up a persistent ChromaDB client (saves to disk, not just memory)
 client = chromadb.PersistentClient(path="./chroma_db")
@@ -20,7 +20,7 @@ with open("data/tickets_kb.json", "r") as f:
 
 # Embed each ticket's "issue" text and store it
 for ticket in tickets:
-    embedding = model.encode(ticket["issue"]).tolist()
+    embedding = list(model.embed([ticket["issue"]]))[0].tolist()
 
     collection.add(
         ids=[ticket["id"]],
