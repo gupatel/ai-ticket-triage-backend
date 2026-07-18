@@ -9,7 +9,7 @@ app = FastAPI(title="AI Ticket Triage API")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["http://localhost:3000", "https://ai-ticket-triage-frontend.vercel.app"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
