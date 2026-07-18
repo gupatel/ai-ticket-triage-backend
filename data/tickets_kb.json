@@ -1,0 +1,142 @@
+[
+  {
+    "id": "kb-001",
+    "issue": "User cannot reset their password, reset link expires immediately",
+    "category": "Account Access",
+    "priority": "High",
+    "resolution": "Password reset links expire after 15 minutes. Instructed user to request a new link and complete reset within the time window. Escalate to engineering if expiry occurs under 15 minutes."
+  },
+  {
+    "id": "kb-002",
+    "issue": "Payment was charged twice for the same order",
+    "category": "Billing",
+    "priority": "High",
+    "resolution": "Verified duplicate charge in payment logs. Issued refund for the duplicate transaction and flagged for the billing team to check for a webhook retry bug."
+  },
+  {
+    "id": "kb-003",
+    "issue": "App crashes when uploading a profile picture larger than 5MB",
+    "category": "Bug Report",
+    "priority": "Medium",
+    "resolution": "Confirmed file size limit is not enforced client-side. Advised user to resize image under 5MB as a workaround. Logged as a bug for the frontend team to add validation."
+  },
+  {
+    "id": "kb-004",
+    "issue": "How do I change my email notification preferences?",
+    "category": "How-To",
+    "priority": "Low",
+    "resolution": "Walked user through Settings > Notifications > toggle desired categories. No escalation needed."
+  },
+  {
+    "id": "kb-005",
+    "issue": "Order shows as delivered but customer never received the package",
+    "category": "Shipping",
+    "priority": "High",
+    "resolution": "Filed a claim with the shipping carrier and issued a provisional refund pending investigation. Advised customer of 5-7 business day resolution window."
+  },
+  {
+    "id": "kb-006",
+    "issue": "Two-factor authentication code never arrives via SMS",
+    "category": "Account Access",
+    "priority": "High",
+    "resolution": "Confirmed carrier delay on SMS delivery. Offered authenticator app as an alternative 2FA method and provided setup steps."
+  },
+  {
+    "id": "kb-007",
+    "issue": "Subscription renewed after user cancelled it last month",
+    "category": "Billing",
+    "priority": "High",
+    "resolution": "Found cancellation was submitted after the billing cycle cutoff. Issued a full refund as a one-time courtesy and confirmed cancellation is now active."
+  },
+  {
+    "id": "kb-008",
+    "issue": "Dashboard charts fail to load, shows blank white space",
+    "category": "Bug Report",
+    "priority": "Medium",
+    "resolution": "Identified as a known issue with ad-blockers interfering with the charting library. Advised whitelisting the domain; logged for engineering to add a fallback renderer."
+  },
+  {
+    "id": "kb-009",
+    "issue": "How do I export my data to CSV?",
+    "category": "How-To",
+    "priority": "Low",
+    "resolution": "Directed user to Reports > Export > CSV. Confirmed export includes all historical data by default."
+  },
+  {
+    "id": "kb-010",
+    "issue": "Package delivered to wrong address despite correct shipping info",
+    "category": "Shipping",
+    "priority": "High",
+    "resolution": "Confirmed shipping label had correct address; carrier misdelivery. Filed carrier claim and shipped a replacement at no cost."
+  },
+  {
+    "id": "kb-011",
+    "issue": "Account locked after multiple failed login attempts",
+    "category": "Account Access",
+    "priority": "Medium",
+    "resolution": "Verified lockout was triggered by security policy after 5 failed attempts. Unlocked account after identity verification and reset password."
+  },
+  {
+    "id": "kb-012",
+    "issue": "Invoice PDF shows incorrect tax amount",
+    "category": "Billing",
+    "priority": "Medium",
+    "resolution": "Identified a regional tax rate misconfiguration. Issued a corrected invoice and flagged the tax table for the finance team to update."
+  },
+  {
+    "id": "kb-013",
+    "issue": "Search feature returns no results for valid queries",
+    "category": "Bug Report",
+    "priority": "High",
+    "resolution": "Found search index was stale due to a failed reindex job. Manually triggered reindex and confirmed search results returned correctly."
+  },
+  {
+    "id": "kb-014",
+    "issue": "How do I add a team member to my workspace?",
+    "category": "How-To",
+    "priority": "Low",
+    "resolution": "Directed user to Workspace Settings > Members > Invite. Confirmed invited members receive an email with a signup link."
+  },
+  {
+    "id": "kb-015",
+    "issue": "Tracking number shows no movement for over a week",
+    "category": "Shipping",
+    "priority": "Medium",
+    "resolution": "Contacted carrier for status update; package was delayed at a sorting facility. Provided customer with updated ETA and carrier contact info."
+  },
+  {
+    "id": "kb-016",
+    "issue": "User wants to merge two duplicate accounts",
+    "category": "Account Access",
+    "priority": "Medium",
+    "resolution": "Verified ownership of both accounts via email confirmation. Escalated to engineering team for manual account merge, as this requires backend access."
+  },
+  {
+    "id": "kb-017",
+    "issue": "Refund was approved but funds never appeared in bank account",
+    "category": "Billing",
+    "priority": "High",
+    "resolution": "Confirmed refund was processed on our end 6 business days ago. Advised customer refunds can take 5-10 business days depending on their bank, and to contact their bank if not received after 10 days."
+  },
+  {
+    "id": "kb-018",
+    "issue": "Mobile app freezes on the checkout screen",
+    "category": "Bug Report",
+    "priority": "High",
+    "resolution": "Reproduced issue on iOS 17 with a specific payment method selected. Logged as a critical bug for the mobile team with reproduction steps attached."
+  },
+  {
+    "id": "kb-019",
+    "issue": "How do I downgrade my subscription plan?",
+    "category": "How-To",
+    "priority": "Low",
+    "resolution": "Directed user to Billing > Plan > Change Plan. Explained downgrade takes effect at the start of the next billing cycle."
+  },
+  {
+    "id": "kb-020",
+    "issue": "Customer received wrong item in their order",
+    "category": "Shipping",
+    "priority": "Medium",
+    "resolution": "Confirmed warehouse packing error via order photos. Shipped correct item with expedited shipping and provided a prepaid return label for the wrong item."
+  }
+]
